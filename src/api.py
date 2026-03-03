@@ -16,7 +16,10 @@ async def log_water_intake(request: WaterIntake):
     log_intake(request.user_id, request.intake_ml)
     analysis = agent.analyze_intake(request.intake_ml)
     log_message(f"User {request.user_id} drank {request.intake_ml} ml of water. Analysis: {analysis}")
-    return {"message": "Water intake logged successfully"}
+    return {
+        "message": "Water intake logged successfully",
+        "analysis": analysis,
+    }
 
 @app.get("/history/{user_id}")
 async def get_water_history(user_id: str):

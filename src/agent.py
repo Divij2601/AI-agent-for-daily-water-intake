@@ -22,6 +22,7 @@ class WaterIntakeAgent:
 
         prompt= f"""
         You are a hydration assistant. The user has consumed {intake_ml} ml of water today. Proide a hydration status and check if they need to drink more water.
+        the response should be in a single sentence, comprising of all the information within 100 words.
         """
         response= llm.invoke([HumanMessage(content=prompt)])
 
